@@ -1,4 +1,3 @@
-var async = require('async');
 var assert = require('assert');
 
 var notification = require('../../lib/impl/notification.js');
@@ -14,17 +13,34 @@ var submission = {
   formId: "52f0bb82594dd41a232dbd6a",
   masterFormTimestamp: new Date().toString(),
   timezoneOffset: 120,
+  formSubmittedAgainst: {
+    pages: [
+      {
+        _id: 'page',
+        fields: [
+          { _id: '0' },
+          { _id: '1' },
+          { _id: '2' },
+          { _id: '3' },
+          { _id: '4' },
+          { _id: '5' },
+          { _id: '6' },
+          { _id: '7' }
+        ]
+      }
+    ]
+  },
   formFields:[
     {
-      fieldId: { name: 'greeting', type: 'text'},
+      fieldId: { _id: '0', name: 'greeting', type: 'text'},
       fieldValues: [ "Hello", "World" ]
     },
     {
-      fieldId: { name: 'TestField0', type: 'text'},
+      fieldId: { _id: '1', name: 'TestField0', type: 'text'},
       fieldValues: [ 'TestFieldValue0' ]
     },
     {
-      fieldId: { name: 'TestField1', type: 'file'},
+      fieldId: { _id: '2', name: 'TestField1', type: 'file'},
       fieldValues: [ {
         "groupId": "5332b9cf887b0f0422000001",
         "fileName": "fileName1",
@@ -35,7 +51,7 @@ var submission = {
       } ]
     },
     {
-      fieldId: { name: 'TestField2', type: 'file'},
+      fieldId: { _id: '3', name: 'TestField2', type: 'file'},
       fieldValues: [ {
         "groupId": "5332b9cf887b0f0422000002",
         "fileName": "fileName2",
@@ -46,7 +62,7 @@ var submission = {
       } ]
     },
     {
-      fieldId: { name: 'TestField3', type: 'checkboxes'},
+      fieldId: { _id: '4', name: 'TestField3', type: 'checkboxes'},
       fieldValues: [
         {
           selections: ['TestField3ValueSelect1', 'TestField3ValueSelect2']
@@ -54,15 +70,15 @@ var submission = {
       ]
     },
     {
-      fieldId: { name: 'TestField4', type: 'location', fieldOptions: {definition:{locationUnit:"latlong"}}},
+      fieldId: { _id: '5', name: 'TestField4', type: 'location', fieldOptions: {definition:{locationUnit:"latlong"}}},
       fieldValues: [ {lat: 52.1234, 'long': -7.5678} ]
     },
     {
-      fieldId: { name: 'TestField5', type: 'location', fieldOptions: {definition:{locationUnit:"eastnorth"}}},
+      fieldId: { _id: '6', name: 'TestField5', type: 'location', fieldOptions: {definition:{locationUnit:"eastnorth"}}},
       fieldValues: [ {zone: 'SL', eastings: 49000, northings: 12345} ]
     },
     {
-      fieldId: { name: 'TestField6', type: 'locationMap' },
+      fieldId: { _id: '7', name: 'TestField6', type: 'locationMap' },
       fieldValues: [ {lat: 52.1234, 'long': -7.5678} ]
     }
   ],
@@ -106,4 +122,4 @@ module.exports.test.it_should_return_formatted_submission = function(finish) {
   assert.equal(msg.submittedFields[7], "TestField6: (52.1234,-7.5678)");
 
   finish();
-}
+};
