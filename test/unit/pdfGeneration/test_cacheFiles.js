@@ -132,9 +132,9 @@ module.exports = {
       done();
     });
   },
-  "Test Merge Submission Files": function(done){
+  "Test Merge Submission Files": function(done) {
     var mocks = {
-      '../getSubmissionFile.js': function(connections, options, params, cb){
+      '../getSubmissionFile.js': function(connections, options, params, cb) {
         assert.ok(_.isObject(connections), "Expected A Connections Parameter");
         assert.ok(_.isObject(options), "Expected An Options Parameter");
         assert.equal(params._id, "photoFileGroupId");
@@ -180,12 +180,18 @@ module.exports = {
       formId: "someformid",
       formFields: [
         {
-          fieldId: "somefilefieldid",
-          values: [fileDetails]
+          fieldId: {
+            _id: "somefilefieldid",
+            type: "file"
+          },
+          fieldValues: [fileDetails]
         },
         {
-          fieldId: "somephotofieldid",
-          values: [photoDetails]
+          fieldId: {
+            _id: "somephotofieldid",
+            type: "photo"
+          },
+          fieldValues: [photoDetails]
         }
       ],
       formSubmittedAgainst: {
@@ -218,7 +224,7 @@ module.exports = {
         fileUriPath: "/api/v2/mbaas/env/appforms/submissions/:id/files/:fileId"
       },
       fileId: "somefileidtocache"
-    }, function(err, mergedSubmission){
+    }, function(err, mergedSubmission) {
       assert.ok(!err, "Expected No Error When Writing The Stream");
 
       //The File Field Should Have A Download Url
