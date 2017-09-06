@@ -54,7 +54,24 @@ function fieldValidator(fieldDef, submission) {
 
 exports.testValidateTooFewSubmissions = function(finish){
 
-  var testField = exampleFields.textFieldData;
+  var testField = {
+    "name":"textField",
+    "helpText":"This is a text field",
+    "type":"text",
+    "adminOnly": false,
+    "repeating":true,
+    "required":true,
+    "fieldOptions":{
+      "definition":{
+        "maxRepeat":5,
+        "minRepeat":2
+      },
+      "validation":{
+        "min":5,
+        "max":20
+      }
+    }
+  };
   var testSubmission = testSubmitFormBaseInfo;
   var testSubmissionData = ["test1"];
 
@@ -161,7 +178,26 @@ exports.testValidateTextFieldTooLong = function(finish){
 // field_format_mode is either
 // "simple" or "regex"
 exports.testValidateTextFieldWithFormatRegex = function(finish){
-  var testField = exampleFields.textFieldDataFormatRegex;
+  var testField = {
+    "name":"textField",
+    "helpText":"This is a text field",
+    "type":"text",
+    "adminOnly": false,
+    "repeating":true,
+    "required":true,
+    "fieldOptions":{
+      "definition":{
+        "maxRepeat":5,
+        "minRepeat":1
+      },
+      "validation":{
+        "min":0,
+        "max":20,
+        "field_format_mode":"regex",
+        "field_format_string": "^[a-zA-Z0-9][a-zA-Z0-9][0-9][0-9][0-9]\\u002D[0-9][0-9][0-9][0-9]$"
+      }
+    }
+  };
   var testSubmission = testSubmitFormBaseInfo;
   var testSubmissionData = [
     {fieldValues: ["EN201-4123"], result: true},
@@ -208,7 +244,26 @@ exports.testValidateTextFieldWithFormatRegex = function(finish){
 }
 
 exports.testValidateTextFieldWithFormatSimple = function(finish){
-  var testField = exampleFields.textFieldDataFormatSimple;
+  var testField = {
+    "name":"textField",
+    "helpText":"This is a text field",
+    "type":"text",
+    "adminOnly": false,
+    "repeating":true,
+    "required":true,
+    "fieldOptions":{
+      "definition":{
+        "maxRepeat":5,
+        "minRepeat":1
+      },
+      "validation":{
+        "min":0,
+        "max":20,
+        "field_format_mode":"simple",
+        "field_format_string": "ccnnn-nnnn"
+      }
+    }
+  };
   var testSubmission = testSubmitFormBaseInfo;
   var testSubmissionData = [
     {fieldValues: ["EN201-4123"], result: true},

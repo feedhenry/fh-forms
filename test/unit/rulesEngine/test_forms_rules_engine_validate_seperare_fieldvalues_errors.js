@@ -152,6 +152,128 @@ var TEST_BASIC_FORM_1_DEFINITION = {
   "submissionsTotal":124125
 };
 
+var TEST_BASIC_FORM_2_DEFINITION = {
+ "updatedBy":"user@example.com",
+  "createdBy":"user@example.com",
+  "name":"TEST_BASIC_FORM_1_DEFINITION",
+  "lastUpdated":"2013-11-08T20:10:33.819Z",
+  "lastUpdatedTimestamp": 1384800150848,
+  "dateCreated":"2013-11-08T20:10:33.819Z",
+  "description":"This form is for testing rules.",
+  "_id":"527d4539639f521e0a000004",
+  "pageRules":[],
+  "fieldRules":[],
+  "pages":[
+    {
+      "name":TEST_BASIC_FORM_1_PAGE_1_NAME,
+      "description":"This is a test page for the win.",
+      "_id":TEST_BASIC_FORM_1_PAGE_1_ID,
+      "fields":[
+        {
+          "name":TEST_BASIC_FORM_1_PAGE_1_FIELD_1_NAME,
+          "helpText":"This is a text field",
+          "type":TEST_BASIC_FORM_1_PAGE_1_FIELD_1_TYPE,
+          "required":true,
+          "fieldOptions":{
+            "definition":{
+              "maxRepeat":5,
+              "minRepeat":2
+            },
+            "validation":{
+              "min":20,
+              "max":100
+            }
+          },
+          "_id":TEST_BASIC_FORM_1_PAGE_1_FIELD_1_ID,
+          "repeating":false
+        },
+        {
+          "name":TEST_BASIC_FORM_1_PAGE_1_FIELD_2_NAME,
+          "helpText":"This is a text area field",
+          "type":TEST_BASIC_FORM_1_PAGE_1_FIELD_2_TYPE,
+          "required":false,
+          "fieldOptions":{
+            "definition":{
+              "maxRepeat":5,
+              "minRepeat":3
+            },
+            "validation":{
+              "min":50,
+              "max":100
+            }
+          },
+          "_id":TEST_BASIC_FORM_1_PAGE_1_FIELD_2_ID,
+          "repeating":false
+        },
+        {
+          "name":TEST_BASIC_FORM_1_PAGE_1_FIELD_3_NAME,
+          "helpText":"This is a number field",
+          "type":TEST_BASIC_FORM_1_PAGE_1_FIELD_3_TYPE,
+          "required":true,
+          "fieldOptions":{
+            "definition":{
+              "maxRepeat":5,
+              "minRepeat":2
+            },
+            "validation":{
+              "min":0,
+              "max": TEST_BASIC_FORM_1_PAGE_1_FIELD_3_MAX_VALUE
+            }
+          },
+          "_id":TEST_BASIC_FORM_1_PAGE_1_FIELD_3_ID,
+          "repeating":true
+        },
+        {
+          "name":TEST_BASIC_FORM_1_PAGE_1_FIELD_4_NAME,
+          "helpText":"This is a sectionBreak field",
+          "type":TEST_BASIC_FORM_1_PAGE_1_FIELD_4_TYPE, //"sectionBreak",
+          "required":false,
+          "_id":TEST_BASIC_FORM_1_PAGE_1_FIELD_4_ID,
+          "repeating":false
+        },
+        {
+          "name":TEST_BASIC_FORM_1_PAGE_1_FIELD_5_NAME,
+          "helpText":"This is a Email field",
+          "type":TEST_BASIC_FORM_1_PAGE_1_FIELD_5_TYPE, //"emailAddress",
+          "required":true,
+          "fieldOptions":{
+          },
+          "_id":TEST_BASIC_FORM_1_PAGE_1_FIELD_5_ID,
+          "repeating":false
+        }
+      ]
+    }
+  ],
+  "pageRef":{
+    TEST_BASIC_FORM_1_PAGE_1_ID:0
+  },
+  "fieldRef": {
+    TEST_BASIC_FORM_1_PAGE_1_FIELD_1_ID: {
+      "page":0,
+      "field":0
+    },
+    TEST_BASIC_FORM_1_PAGE_1_FIELD_2_ID: {
+      "page":0,
+      "field":1
+    },
+    TEST_BASIC_FORM_1_PAGE_1_FIELD_3_ID: {
+      "page":0,
+      "field":2
+    },
+    TEST_BASIC_FORM_1_PAGE_1_FIELD_4_ID: {
+      "page":0,
+      "field":3
+    },
+    TEST_BASIC_FORM_1_PAGE_1_FIELD_5_ID: {
+      "page":0,
+      "field":4
+    }
+  },
+  "appsUsing":123,
+  "submissionsToday":1234,
+  "submissionsTotal":124125
+};
+
 var TEST_BASIC_FORM_1_SUBMISSION_1 = {
    "appId":"appId123456",
    "appCloudName":"appCloudName123456",
@@ -229,7 +351,7 @@ module.exports.testBasicForm1ValidateFormInvalid = function (finish) {
   var TEST_BASIC_FORM_1_SUBMISSION_TEST_INVALID_FIELD = JSON.parse(JSON.stringify(TEST_BASIC_FORM_1_SUBMISSION_1));
   TEST_BASIC_FORM_1_SUBMISSION_TEST_INVALID_FIELD.formFields[2].fieldValues[0] = TEST_BASIC_FORM_1_PAGE_1_FIELD_3_MAX_VALUE;
 
-  var engine = formsRulesEngine(TEST_BASIC_FORM_1_DEFINITION);
+  var engine = formsRulesEngine(TEST_BASIC_FORM_2_DEFINITION);
 
   async.series([
     function (cb) {
