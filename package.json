@@ -5,7 +5,9 @@
   "main": "fhforms.js",
   "scripts": {
     "test": "grunt eslint fh-test",
-    "version": "sed -i.bak \"s/sonar.projectVersion=.*/sonar.projectVersion=${npm_package_version}/\" sonar-project.properties && rm sonar-project.properties.bak && git add sonar-project.properties"
+    "version": "sed -i.bak \"s/sonar.projectVersion=.*/sonar.projectVersion=${npm_package_version}/\" sonar-project.properties && rm sonar-project.properties.bak && git add sonar-project.properties",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -28,18 +30,19 @@
     "fh-mbaas-client": "0.15.0",
     "handlebars": "4.0.6",
     "lodash": "2.2.1",
-    "mime": "1.2.11",
+    "mime": "1.4.1",
     "mkdirp": "^0.5.1",
     "mmmagic": "^0.4.1",
-    "moment": "2.14.1",
+    "moment": "2.15.2",
     "mongodb": "2.1.18",
     "mongodb-uri": "0.9.7",
-    "mongoose": "4.5.0",
+    "mongoose": "4.11.14",
     "mongoose-paginate": "5.0.3",
     "phantom": "2.1.21",
-    "request": "2.74.0",
+    "request": "2.81.0",
     "underscore": "1.8.0",
-    "yauzl": "2.4.1"
+    "yauzl": "2.4.1",
+    "snyk": "^1.42.6"
   },
   "devDependencies": {
     "bunyan": "^1.5.1",
@@ -64,5 +67,6 @@
   },
   "engines": {
     "node": "4.4"
-  }
+  },
+  "snyk": true
 }
