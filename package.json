@@ -22,7 +22,7 @@
   "dependencies": {
     "archiver": "1.2.0",
     "async": "0.2.9",
-    "fh-cls-mongoose": "2.1.0",
+    "fh-cls-mongoose": "2.1.1",
     "fh-gridfs": "1.1.1",
     "fh-logger": "0.5.0",
     "fh-mbaas-client": "0.15.0",
@@ -37,7 +37,7 @@
     "mongoose": "4.11.14",
     "mongoose-paginate": "5.0.3",
     "phantom": "2.1.21",
-    "request": "2.81.0",
+    "request": "2.83.0",
     "underscore": "1.8.0",
     "yauzl": "2.4.1"
   },
