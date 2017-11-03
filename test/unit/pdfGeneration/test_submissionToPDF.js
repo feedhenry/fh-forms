@@ -31,8 +31,8 @@ describe("Testing Submission PDF Generation Queue", function() {
         //If the first pdf generation has been called, then the second should have been called at least after `timeoutMS` as that's when the first generation has completed.
         if (firstCalledTime) {
           secondCalledTime = Date.now();
-
-          assert(secondCalledTime - firstCalledTime >= self.timeoutMS);
+          
+          assert(secondCalledTime - firstCalledTime >= self.timeoutMS, secondCalledTime + " - " + firstCalledTime + " >= " + self.timeoutMS);
         } else {
           firstCalledTime = Date.now();
         }

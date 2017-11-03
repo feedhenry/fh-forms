@@ -14,7 +14,7 @@ var assert = require('assert');
 var testsConfig = {
   "dbUser": "appformsuser",
   "dbPassword": "appformspass",
-  "dbAddress": "localhost",
+  "dbAddress": process.env.MONGODB_HOST || "localhost",
   "dbPort": 27017,
   "dbForTests": "testAppFormsDb"
 };
@@ -221,14 +221,14 @@ function cleanDatabase(assert, cb) {
   var db = new DB(testAppFormsDb, new Server(testsConfig.dbAddress, testsConfig.dbPort), {"w": 1, j: false});
 
   db.open(function (err, db) {
-    assert.ok(!err);
+    assert.ok(!err, err);
     assert.ok(db);
 
     db.authenticate("admin", "admin", {"authSource": "admin"}, function (err, ok) {
-      assert.ok(!err);
+      assert.ok(!err, err);
 
       db.dropDatabase(function (err, ok) {
-        assert.ok(!err);
+        assert.ok(!err, err);
 
         db.close(cb);
       });

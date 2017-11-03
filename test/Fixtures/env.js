@@ -1,7 +1,7 @@
 var testConfig = {
   "dbUser":     "appformsuser", 
   "dbPassword": "appformspass", 
-  "dbAddress" : "localhost", 
+  "dbAddress" : process.env.MONGODB_HOST || "localhost", 
   "dbPort":     27017, 
   "dbForTests": "testAppFormsDb"
 };

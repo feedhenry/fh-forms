@@ -43,8 +43,8 @@ module.exports = function(grunt) {
 
     _accept_runner: '_mocha',
     _accept_args: '-A -u exports --recursive -t 10000 ./test/setup_accept.js ./test/accept',
-    accept: ['mongo ./test/setup_mongo.js', '<%= _accept_runner %> <%= _accept_args %>'],
-    accept_cover: ['mongo ./test/setup_mongo.js', 'istanbul cover --dir cov-accept <%= _accept_runner %> -- <%= _accept_args %>'],
+    accept: ['node ./test/setup_mongo_node.js', '<%= _accept_runner %> <%= _accept_args %>'],
+    accept_cover: ['node ./test/setup_mongo_node.js', 'istanbul cover --dir cov-accept <%= _accept_runner %> -- <%= _accept_args %>'],
 
     coveralls: {
       target: {
