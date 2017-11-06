@@ -56,6 +56,19 @@
     font-style:normal;
 }
 
+#fh_appform_container .fh_appform_button_removeSection,
+#fh_appform_container .fh_appform_button_addSection{
+  margin: 10px 0px 10px 0px;
+  padding: 8px 8px 8px 8px;
+}
+
+
+#fh_appform_container .fh_appform_button_addSection{
+  background-color: rgb(18, 110, 0);
+  margin: 8px 0px 8px 0px;
+  padding: 8px 8px 8px 8px;
+}
+
 .fh_appform_navigation {
     background-color:#844b82;
 }

@@ -752,6 +752,64 @@
             "left": "12"
           }
 
+        }, {
+          "id": "addSection",
+          "label": "Add Section",
+          "margin": {
+            "top": "8",
+            "right": "0",
+            "bottom": "8",
+            "left": "0"
+          },
+          "padding": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "background": {
+            "background_color": "rgba(18, 110, 0,1)"
+          },
+          "border": {
+            "thickness": "none",
+            "style": "solid",
+            "colour": "rgba(2,2,2,1)"
+          },
+          "typography": {
+            "fontSize": "1",
+            "fontFamily": "arial",
+            "fontStyle": "bold",
+            "fontColour": "rgba(255,255,255,1)"
+          }
+        }, {
+          "id": "removeSection",
+          "label": "Remove Section",
+          "margin": {
+            "top": "8",
+            "right": "0",
+            "bottom": "8",
+            "left": "0"
+          },
+          "padding": {
+            "top": "8",
+            "right": "8",
+            "bottom": "8",
+            "left": "8"
+          },
+          "background": {
+            "background_color": "rgba(201, 114, 0,1)"
+          },
+          "border": {
+            "thickness": "none",
+            "style": "solid",
+            "colour": "rgba(2,2,2,1)"
+          },
+          "typography": {
+            "fontSize": "1",
+            "fontFamily": "arial",
+            "fontStyle": "bold",
+            "fontColour": "rgba(255,255,255,1)"
+          }
         }
       ]
     }
@@ -1476,6 +1534,54 @@
                 "bottom": true,
                 "left": true
               }
+            },
+            "staticCSS": [
+              {
+                "key": "border-radius",
+                "value": "0px"
+              },
+              {
+                "key": "white-space",
+                "value": "normal"
+              }
+            ],
+            "classAdditions": [
+
+            ]
+          },{
+            "id": "addSection",
+            "class_name": "button_addSection, #fh_appform_container .button_addSection",
+            "label": "Add Section",
+            "style": {
+              "typography": true,
+              "background": true,
+              "border": true,
+              "margin": {"top": true, "right": false, "bottom": true, "left": false},
+              "padding": {"top": true, "right": true, "bottom": true, "left": true}
+            },
+            "staticCSS": [
+              {
+                "key": "border-radius",
+                "value": "0px"
+              },
+              {
+                "key": "white-space",
+                "value": "normal"
+              }
+            ],
+            "classAdditions": [
+
+            ]
+          }, {
+            "id": "removeSection",
+            "class_name": "button_removeSection, #fh_appform_container .button_removeSection",
+            "label": "Remove Section",
+            "style": {
+              "typography": true,
+              "background": true,
+              "border": true,
+              "margin": { "top": true, "right": false, "bottom": true, "left": false },
+              "padding": { "top": true, "right": true, "bottom": true, "left": true }
             },
             "staticCSS": [
               {
