@@ -1,6 +1,6 @@
 {
   "name": "fh-forms",
-  "version": "1.16.1-RHMAP-18577.1",
+  "version": "1.16.1",
   "description": "Cloud Forms API for form submission",
   "main": "fhforms.js",
   "scripts": {
