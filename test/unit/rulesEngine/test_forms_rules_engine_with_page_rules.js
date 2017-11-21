@@ -705,9 +705,9 @@ module.exports.testAdminFormCorrectSubmission = function(finish){
         async.series([
           function(cb) {
             async.each(oneTest.fieldsToCheck, function (fieldTest, cb) {
-              assert.ok(results.actions.fields[fieldTest.fieldID], 'expected field ' + fieldTest.fieldID + ' not listed in results: ' + util.inspect(results.actions.fields));
-              assert.equal(results.actions.fields[fieldTest.fieldID].targetId, fieldTest.fieldID);
-              assert.equal(results.actions.fields[fieldTest.fieldID].action, fieldTest.expectedVisible?"show":"hide", 'expected action ' + (fieldTest.expectedVisible?"show":"hide") + ', for field: ' + fieldTest.fieldID);
+              assert.ok(results.actions.fields[fieldTest.fieldID + '_0'], 'expected field ' + fieldTest.fieldID + ' not listed in results: ' + util.inspect(results.actions.fields));
+              assert.equal(results.actions.fields[fieldTest.fieldID + '_0'].targetId, fieldTest.fieldID);
+              assert.equal(results.actions.fields[fieldTest.fieldID + '_0'].action, fieldTest.expectedVisible?"show":"hide", 'expected action ' + (fieldTest.expectedVisible?"show":"hide") + ', for field: ' + fieldTest.fieldID);
               return cb();
             }, function (err) {
               assert.ok(!err);
@@ -873,9 +873,9 @@ module.exports.testBasicForm2CheckRulesHidingPage2 = function (finish) {
         async.series([
           function(cb) {
             async.each(oneTest.fieldsToCheck, function (fieldTest, cb) {
-              assert.ok(results.actions.fields[fieldTest.fieldID], 'expected field ' + fieldTest.fieldID + ' not listed in results: ' + util.inspect(results.actions.fields));
-              assert.equal(results.actions.fields[fieldTest.fieldID].targetId, fieldTest.fieldID);
-              assert.equal(results.actions.fields[fieldTest.fieldID].action, fieldTest.expectedVisible?"show":"hide", 'expected action ' + (fieldTest.expectedVisible?"show":"hide") + ', for field: ' + fieldTest.fieldID);
+              assert.ok(results.actions.fields[fieldTest.fieldID + '_0'], 'expected field ' + fieldTest.fieldID + ' not listed in results: ' + util.inspect(results.actions.fields));
+              assert.equal(results.actions.fields[fieldTest.fieldID + '_0'].targetId, fieldTest.fieldID);
+              assert.equal(results.actions.fields[fieldTest.fieldID + '_0'].action, fieldTest.expectedVisible?"show":"hide", 'expected action ' + (fieldTest.expectedVisible?"show":"hide") + ', for field: ' + fieldTest.fieldID);
               return cb();
             }, function (err) {
               assert.ok(!err);
@@ -939,9 +939,9 @@ module.exports.testBasicForm2CheckRulesHidingPage2AndPage3 = function (finish) {
         async.series([
           function(cb) {
             async.each(oneTest.fieldsToCheck, function (fieldTest, cb) {
-              assert.ok(results.actions.fields[fieldTest.fieldID], 'expected field ' + fieldTest.fieldID + ' not listed in results: ' + util.inspect(results.actions.fields));
-              assert.equal(results.actions.fields[fieldTest.fieldID].targetId, fieldTest.fieldID);
-              assert.equal(results.actions.fields[fieldTest.fieldID].action, fieldTest.expectedVisible?"show":"hide", 'expected action ' + (fieldTest.expectedVisible?"show":"hide") + ', for field: ' + fieldTest.fieldID);
+              assert.ok(results.actions.fields[fieldTest.fieldID + '_0'], 'expected field ' + fieldTest.fieldID + ' not listed in results: ' + util.inspect(results.actions.fields));
+              assert.equal(results.actions.fields[fieldTest.fieldID + '_0'].targetId, fieldTest.fieldID);
+              assert.equal(results.actions.fields[fieldTest.fieldID + '_0'].action, fieldTest.expectedVisible?"show":"hide", 'expected action ' + (fieldTest.expectedVisible?"show":"hide") + ', for field: ' + fieldTest.fieldID);
               return cb();
             }, function (err) {
               assert.ok(!err);

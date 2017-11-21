@@ -556,9 +556,9 @@ module.exports.testBasicFormCheckRulesFieldSetToShowInRule = function (finish) {
         assert.ok(results.actions.fields);
         assert.equal(Object.keys(results.actions.fields).length, 3, 'Should only be 3 fields listed, since only 3 targets specified in rules');
 
-        assert.equal(results.actions.fields['52974ee55e272dcb3d0000a6'].action, "hide");
-        assert.equal(results.actions.fields['52974ee55e272dcb3d0000a7'].action, "hide");
-        assert.equal(results.actions.fields['52974ee55e272dcb3d0000a8'].action, "hide");
+        assert.equal(results.actions.fields['52974ee55e272dcb3d0000a6_0'].action, "hide");
+        assert.equal(results.actions.fields['52974ee55e272dcb3d0000a7_0'].action, "hide");
+        assert.equal(results.actions.fields['52974ee55e272dcb3d0000a8_0'].action, "hide");
 
         assert.ok(results.actions.pages);
         assert.equal(Object.keys(results.actions.pages).length, 1, 'Should be 1 pages listed');

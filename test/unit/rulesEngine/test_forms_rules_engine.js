@@ -2422,9 +2422,9 @@ module.exports.testBasicFormCheckRulesFieldSetToShowInRule = function (finish) {
         assert.equal(Object.keys(results.actions.pages).length, 0, 'Should be 0 pages listed, since no page targets specified in rules');
 
         async.each(oneTest.fieldsToCheck, function (fieldTest, cb) {
-          assert.ok(results.actions.fields[fieldTest.fieldID], 'expected field ' + fieldTest.fieldID + ' not listed in results: ' + util.inspect(results.actions.fields));
-          assert.equal(results.actions.fields[fieldTest.fieldID].targetId, fieldTest.fieldID);
-          assert.equal(results.actions.fields[fieldTest.fieldID].action, fieldTest.expectedVisible?"show":"hide", 'expected action ' + (fieldTest.expectedVisible?"show":"hide") + ', for field: ' + fieldTest.fieldID);
+          assert.ok(results.actions.fields[fieldTest.fieldID + '_0'], 'expected field ' + fieldTest.fieldID + ' not listed in results: ' + util.inspect(results.actions.fields));
+          assert.equal(results.actions.fields[fieldTest.fieldID + '_0'].targetId, fieldTest.fieldID);
+          assert.equal(results.actions.fields[fieldTest.fieldID + '_0'].action, fieldTest.expectedVisible?"show":"hide", 'expected action ' + (fieldTest.expectedVisible?"show":"hide") + ', for field: ' + fieldTest.fieldID);
           return cb();
         }, function (err) {
           assert.ok(!err);
