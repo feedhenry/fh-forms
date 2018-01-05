@@ -23,7 +23,7 @@ node('nodejs6') {
     }
 
     stage('Acceptance Tests') {
-        withOpenshiftServices(['mongodb']) {
+        withOpenshiftServices(['mongodb32']) {
             sh 'grunt fh:accept'
         }
     }
