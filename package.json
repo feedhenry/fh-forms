@@ -1,6 +1,6 @@
 {
   "name": "fh-forms",
-  "version": "1.16.4",
+  "version": "1.16.5",
   "description": "Cloud Forms API for form submission",
   "main": "fhforms.js",
   "scripts": {
@@ -31,7 +31,7 @@
     "mime": "1.4.1",
     "mkdirp": "^0.5.1",
     "mmmagic": "^0.4.1",
-    "moment": "2.15.2",
+    "moment": "2.19.3",
     "mongodb": "2.1.18",
     "mongodb-uri": "0.9.7",
     "mongoose": "4.11.14",
