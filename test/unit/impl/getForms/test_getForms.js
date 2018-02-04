@@ -3,6 +3,7 @@ var assert = require('assert');
 var sinon = require('sinon');
 var constants = require("../../../../lib/common/constants");
 var MODEL_NAMES = constants.MODELNAMES;
+require('sinon-as-promised');
 
 // Mocks
 var appForms = [{
@@ -58,8 +59,8 @@ var connections = {
   databaseConnection: {
     collection: function () {
       return {
-        mapReduce: sinon.stub().callsArgWith(3, null, 4096)
-      }
+        mapReduce: sinon.stub().resolves(4096)
+      };
     }
   }
 };
