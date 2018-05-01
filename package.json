@@ -61,6 +61,6 @@
     "sinon-as-promised": "^4.0.2"
   },
   "engines": {
-    "node": "4.4"
+    "node": ">=6"
   }
 }
