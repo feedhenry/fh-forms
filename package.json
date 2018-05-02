@@ -41,8 +41,8 @@
     "yauzl": "2.4.1"
   },
   "devDependencies": {
-    "bunyan": "^1.5.1",
-    "cli-color": "^1.1.0",
+    "bunyan": "^1.8.12",
+    "cli-color": "^1.2.0",
     "eslint": "^2.7.0",
     "grunt": "^1.0.1",
     "grunt-browserify": "5.0.0",
@@ -52,16 +52,15 @@
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-coveralls": "^1.0.1",
     "grunt-fh-build": "2.0.0",
-    "istanbul": "^0.4.3",
-    "mocha": "^2.2.5",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.1.1",
     "nock": "^8.0.0",
     "proxyquire": "^1.7.4",
     "recursive-readdir": "^2.0.0",
-    "sinon": "^1.17.3",
-    "sinon-as-promised": "4.0.2",
-    "turbo-test-runner": "0.3.3"
+    "sinon": "^1.17.7",
+    "sinon-as-promised": "^4.0.2"
   },
   "engines": {
-    "node": "4.4"
+    "node": ">=6"
   }
 }

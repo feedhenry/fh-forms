@@ -46,6 +46,8 @@ module.exports = function(grunt) {
     accept: ['node ./test/setup_mongo_node.js', '<%= _accept_runner %> <%= _accept_args %>'],
     accept_cover: ['node ./test/setup_mongo_node.js', 'istanbul cover --dir cov-accept <%= _accept_runner %> -- <%= _accept_args %>'],
 
+    integrate:['_mocha ./test/integrate'],
+    integrate_cover:['istanbul cover --dir cov-integrate _mocha ./test/integrate'],
     coveralls: {
       target: {
         src: 'coverage/lcov.info'
