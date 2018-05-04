@@ -720,7 +720,7 @@ module.exports.test = {
         forms.dataSources.updateCache(options, [dataSourceDataSingleChoice], {
           currentTime: new Date()
         }, function(err, badUpdateResult){
-          assert.ok(err, "Expected An Error When Updating Data Sources With Bad Data: " + util.inspect(err));
+          assert.ok(err, "Expected An Error When Updating Data Sources With Bad Data");
           assert.equal(ERROR_CODES.FH_FORMS_UNEXPECTED_ERROR, err.code, "Expected A FH_FORMS_UNEXPECTED_ERROR");
 
           var validUpdates = badUpdateResult.validDataSourceUpdates;
@@ -743,49 +743,6 @@ module.exports.test = {
 
           verifyBackoffIncrement(dataSourceDataSingleChoice._id, 1, done);
         });
-
-      });
-    });
-  },
-  "Test Update Data Source Data empty": function(done){
-    var testDataSource = _.clone(dataSourceData);
-    testDataSource.name = "testDSUndefined";
-
-    var dataSourceUndefined = {
-      data: [
-        dataOptions.option1(false),
-        dataOptions.option2(true)
-      ]
-    };
-
-    forms.dataSources.create(options, testDataSource, function(err, createdDataSource){
-      assert.ok(!err, "Unexpected Error: dataSource.create" + util.inspect(err));
-
-      dataSourceUndefined._id = createdDataSource._id;
-
-      forms.dataSources.updateCache(options, [dataSourceUndefined], {
-        currentTime: new Date()
-      }, function(err, updateResult){
-        assert.ok(!err, "Unexpected Error When Updating Data Source Data: " + util.inspect(err) );
-
-        var validUpdates = updateResult.validDataSourceUpdates;
-        var invalidUpdates = updateResult.invalidDataSourceUpdates;
-
-        assert.equal(1, validUpdates.length, "Expected 1 valid update");
-        assert.equal(0, invalidUpdates.length, "Expected 0 invalid updates");
-
-        assert.ok(validUpdates[0]._id, "Expected An Updated Data Source");
-
-        //Updating A Data Source With empty data
-        dataSourceUndefined.data = []; 
-
-        forms.dataSources.updateCache(options, [dataSourceUndefined], {
-          currentTime: new Date()
-        }, function(err, badUpdateResult){
-          assert.ok(err, "Expected An Error When Updating Data Sources With undefined: " + util.inspect(err));
-	  return done();
-        });
-
       });
     });
   },

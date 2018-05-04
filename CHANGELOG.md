@@ -11,4 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add CHANGELOG file
 - Update CI process to use supported versions
 - Remove sonar file since it is not so long used
-- Added checking for undefined elements of the datasources array
+
+
+ 
+
