@@ -4,7 +4,9 @@
   "description": "Cloud Forms API for form submission",
   "main": "fhforms.js",
   "scripts": {
-    "test": "grunt eslint fh-test"
+    "test": "grunt eslint fh-test",
+    "preshrinkwrap": "npm cache verify && npm ls",
+    "postshrinkwrap": "license-reporter save --full-dependency-tree --xml licenses.xml && license-reporter report --full-dependency-tree --silent"
   },
   "repository": {
     "type": "git",
@@ -58,7 +60,8 @@
     "proxyquire": "^1.7.4",
     "recursive-readdir": "^2.0.0",
     "sinon": "^1.17.7",
-    "sinon-as-promised": "^4.0.2"
+    "sinon-as-promised": "^4.0.2",
+    "license-reporter": "github:bucharest-gold/license-reporter#d74abaf47220137b6dfd3a070556c6d5c4f2003b"
   },
   "engines": {
     "node": ">=6"
