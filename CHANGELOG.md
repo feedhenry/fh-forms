@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## Unreleased - Wed May 14, 2018
+### Change
+- Add lock dependencies file (npm-shrinkwrap.json)
+- Add licenses
+- Add scripts to update the licenses automatically
+
 ## Unreleased - Wed May 2, 2018
 ### Change
 - Update dev dependencies to allow run the CI process with NodeJS 8.
