@@ -134,7 +134,7 @@ describe("Submissions values should have empty hidden fields", function() {
       assert.equal(textFieldId, formFields[0].fieldId, "Expected text field ID");
       assert.equal(numberFieldId, formFields[1].fieldId, "Expected number field ID");
       assert.equal("hidenumber", formFields[0].fieldValues[0], "Expected a value in the text field not hidden");
-      assert.equal(undefined, formFields[1].fieldValues[0],"Expected empty value for the hidden field");
+      assert.equal("", formFields[1].fieldValues[0],"Expected empty value for the hidden field");
     }
 
     /**
@@ -230,8 +230,8 @@ describe("Submissions values should have empty hidden fields", function() {
       assert.equal(hiddenFieldId1, formFields[1].fieldId, "Expected hidden field ID");
       assert.equal(hiddenFieldId2, formFields[2].fieldId, "Expected hidden field ID");
       assert.equal("hidepage", formFields[0].fieldValues[0], "Expected a value in the text field not hidden");
-      assert.equal(undefined, formFields[1].fieldValues[0],"Expected empty value for the hidden field");
-      assert.equal(undefined, formFields[2].fieldValues[0],"Expected empty value for the hidden field");
+      assert.equal("", formFields[1].fieldValues[0],"Expected empty value for the hidden field");
+      assert.equal("", formFields[2].fieldValues[0],"Expected empty value for the hidden field");
       done();
     });
   });
