@@ -3,7 +3,7 @@ var pruneHiddenFieldData = require('../../../lib/impl/submitFormDataFunctions/pr
 var ObjectId = require('mongoose').Types.ObjectId;
 var assert = require('assert');
 
-describe("Submissions values should have empty hidden fields", function() {
+describe("Submissions values should be removed from hidden fields", function() {
 
   var testHidingFieldsForm = {
     "_id":"582dbc9009ce8d9c6e63f532",
@@ -117,12 +117,12 @@ describe("Submissions values should have empty hidden fields", function() {
   };
 
 
-  describe("Hiding a field should have empty value", function() {
+  describe("Hiding a field should remove a field value", function() {
     var textFieldId = "582dbce709ce8d9c6e63f533";
-    var numberFieldId = "582dbce709ce8d9c6e63f534";
     /**
      * Checking the pruned results for removed fields.
-     * Checking that field data that is empty.
+     *
+     * Checking that field data that should be removed has been.
      *
      * @param err
      * @param prunedSubmission
@@ -130,11 +130,11 @@ describe("Submissions values should have empty hidden fields", function() {
     function checkResults(err, prunedSubmission) {
       assert.ok(!err, "Expected no error when pruning hidden fields", err);
       var formFields = prunedSubmission.formFields;
-      assert.equal(2, formFields.length, "Expected only 2 entries");
-      assert.equal(textFieldId, formFields[0].fieldId, "Expected text field ID");
-      assert.equal(numberFieldId, formFields[1].fieldId, "Expected number field ID");
-      assert.equal("hidenumber", formFields[0].fieldValues[0], "Expected a value in the text field not hidden");
-      assert.equal(undefined, formFields[1].fieldValues[0],"Expected empty value for the hidden field");
+
+      //There should only be one entry for the text field.
+      assert.equal(1, formFields.length, "Expected only one value entry");
+      assert.equal(textFieldId, formFields[0].fieldId);
+      assert.equal("hidenumber", formFields[0].fieldValues[0]);
     }
 
     /**
@@ -194,7 +194,7 @@ describe("Submissions values should have empty hidden fields", function() {
 
   });
 
-  it("Hiding a Page should have empty values in all fields in that page", function(done) {
+  it("Hiding a Page should remove values in all fields in that page", function(done) {
 
     var submission = getBaseSubmission();
 
@@ -222,16 +222,11 @@ describe("Submissions values should have empty hidden fields", function() {
     pruneHiddenFieldData(testHidingFieldsForm, submission, function(err, prunedSubmission) {
       assert.ok(!err, "Expected no error when pruning hidden fields", err);
       var formFields = prunedSubmission.formFields;
-      var hidePageFieldId = "582dbce709ce8d9c6e63f533";
-      var hiddenFieldId1 = "582dbce709ce8d9c6e63f536";
-      var hiddenFieldId2 = "582dbce709ce8d9c6e63f537";
-      assert.equal(3, formFields.length, "Expected only 3 entries");
-      assert.equal(hidePageFieldId, formFields[0].fieldId, "Expected hide page field ID");
-      assert.equal(hiddenFieldId1, formFields[1].fieldId, "Expected hidden field ID");
-      assert.equal(hiddenFieldId2, formFields[2].fieldId, "Expected hidden field ID");
-      assert.equal("hidepage", formFields[0].fieldValues[0], "Expected a value in the text field not hidden");
-      assert.equal(undefined, formFields[1].fieldValues[0],"Expected empty value for the hidden field");
-      assert.equal(undefined, formFields[2].fieldValues[0],"Expected empty value for the hidden field");
+
+      //There should only be one entry for the text field.
+      assert.equal(1, formFields.length, "Expected only one value entry");
+      assert.equal("582dbce709ce8d9c6e63f533", formFields[0].fieldId);
+      assert.equal("hidepage", formFields[0].fieldValues[0]);
       done();
     });
   });
