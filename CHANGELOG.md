@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.16.8] - 2018-06-20
+### Changed
+### Fixed
+- Fixing broken link in submission pdf for files
+
 ## [1.16.8] - 2018-06-05
 ### Changed
 - Update dev dependencies to allow run the CI process with NodeJS 8.
